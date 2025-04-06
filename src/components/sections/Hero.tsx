@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { PlayCircle, Download, Clock3 } from 'lucide-react';
+import { PlayCircle, PauseCircle, Download, Clock3 } from 'lucide-react';
+import { useScrollContext } from '@/context/ScrollContext';
 
 const topSkills = [
   { id: 1, name: 'Software Development', duration: '3:45' },
@@ -12,8 +13,15 @@ const topSkills = [
 ];
 
 const Hero = () => {
+  const { isScrolling, setIsScrolling, currentSection } = useScrollContext();
+
   return (
-    <section className="pt-20 md:pt-8 pb-16 px-6 md:px-8">
+    <section
+      id="hero"
+      className={`pt-20 md:pt-8 pb-16 px-6 md:px-8 ${
+        currentSection === 'hero' ? 'bg-primary/10' : 'bg-black'
+      }`}
+    >
       <div className="md:pl-0">
         {/* Top gradient background */}
         <div className="absolute top-0 left-0 right-0 h-60 bg-gradient-to-b from-primary/30 to-transparent -z-10"></div>
@@ -51,15 +59,30 @@ const Hero = () => {
             </div>
 
             <div className="flex items-center gap-4 mt-4">
-              <Button className="bg-primary hover:bg-primary/90 text-white rounded-full h-12 px-6">
+              <Button
+                className="bg-primary hover:bg-primary/90 text-white rounded-full h-12 px-6"
+                onClick={() => setIsScrolling(true)}
+              >
                 <PlayCircle className="mr-2 h-5 w-5" />
                 Play Resume
               </Button>
 
-              <Button variant="outline" className="text-white border-white hover:bg-white/10 rounded-full px-6 h-12">
+              <Button
+                className="bg-red-500 hover:bg-red-600 text-white rounded-full h-12 px-6"
+                onClick={() => setIsScrolling(false)}
+              >
+                <PauseCircle className="mr-2 h-5 w-5" />
+                Pause
+              </Button>
+
+              <a
+                href="/cv.pdf"
+                download="Akshat_Ajmera_CV.pdf"
+                className="text-white border border-white hover:bg-white/10 rounded-full px-6 h-12 flex items-center justify-center"
+              >
                 <Download className="mr-2 h-5 w-5" />
                 Download CV
-              </Button>
+              </a>
             </div>
           </motion.div>
         </motion.div>
@@ -86,10 +109,12 @@ const Hero = () => {
                 {topSkills.map((skill, index) => (
                   <motion.tr
                     key={skill.id}
-                    className="group border-b border-[#282828] hover:bg-[#282828] transition-colors"
+                    className={`group border-b border-[#282828] hover:bg-[#282828] transition-colors ${
+                      currentSection === `skill-${index}` ? 'bg-primary/20' : ''
+                    }`}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.6 + (index * 0.1) }}
+                    transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
                   >
                     <td className="py-3 text-gray-400 group-hover:text-white">{index + 1}</td>
                     <td className="py-3 font-medium text-gray-200 group-hover:text-white">{skill.name}</td>

@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { PlayCircle, PauseCircle } from 'lucide-react';
+import { useScrollContext } from '@/context/ScrollContext';
 
 const MobileNowPlaying = () => {
+  const { isScrolling, setIsScrolling } = useScrollContext();
+
   return (
     <motion.div
       className="fixed bottom-0 left-0 right-0 bg-[#181818] py-2 px-4 z-30 md:hidden"
@@ -23,12 +26,15 @@ const MobileNowPlaying = () => {
           </div>
         </div>
 
-        <div className="relative w-1/3 h-1 bg-[#5e5e5e] rounded-full overflow-hidden">
-          <div className="absolute top-0 left-0 h-full w-1/4 bg-white rounded-full"></div>
-        </div>
-
-        <button className="text-white rounded-full w-8 h-8 flex items-center justify-center hover:scale-105 transition-transform">
-          <PlayCircle className="h-8 w-8 text-primary" />
+        <button
+          className="text-white rounded-full w-8 h-8 flex items-center justify-center hover:scale-105 transition-transform"
+          onClick={() => setIsScrolling(!isScrolling)}
+        >
+          {isScrolling ? (
+            <PauseCircle className="h-8 w-8 text-primary" />
+          ) : (
+            <PlayCircle className="h-8 w-8 text-primary" />
+          )}
         </button>
       </div>
     </motion.div>

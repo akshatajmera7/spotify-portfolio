@@ -1,8 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { PlayCircle, SkipBack, SkipForward, Repeat, Shuffle, Volume2 } from 'lucide-react';
+import { PlayCircle, PauseCircle, SkipBack, SkipForward, Repeat, Shuffle, Volume2 } from 'lucide-react';
+import { useScrollContext } from '@/context/ScrollContext';
 
 const NowPlaying = () => {
+  const { isScrolling, setIsScrolling } = useScrollContext();
+
+  const toggleScrolling = () => {
+    setIsScrolling(!isScrolling);
+  };
+
   return (
     <motion.div
       className="fixed bottom-0 left-0 right-0 bg-[#181818] border-t border-[#282828] py-4 px-4 z-30 hidden md:block"
@@ -34,8 +41,15 @@ const NowPlaying = () => {
               <button className="text-gray-400 hover:text-white transition-colors">
                 <SkipBack className="h-5 w-5" />
               </button>
-              <button className="text-white bg-white rounded-full w-8 h-8 flex items-center justify-center hover:scale-105 transition-transform">
-                <PlayCircle className="h-8 w-8 fill-black text-black" />
+              <button
+                className="text-white bg-white rounded-full w-12 h-12 flex items-center justify-center hover:scale-105 transition-transform"
+                onClick={toggleScrolling}
+              >
+                {isScrolling ? (
+                  <PauseCircle className="h-10 w-10 fill-black text-black" />
+                ) : (
+                  <PlayCircle className="h-10 w-10 fill-black text-black" />
+                )}
               </button>
               <button className="text-gray-400 hover:text-white transition-colors">
                 <SkipForward className="h-5 w-5" />

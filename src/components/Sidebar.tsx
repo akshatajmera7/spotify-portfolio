@@ -3,26 +3,28 @@ import Link from 'next/link';
 import {
   Home,
   Library,
-  Search,
   Award,
   Briefcase,
   GraduationCap,
   UserCircle2,
-  Code
+  Code,
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useScrollContext } from '@/context/ScrollContext';
 
 const navItems = [
-  { name: 'Home', href: '/', icon: <Home className="h-6 w-6" /> },
-  { name: 'About Me', href: '#about', icon: <UserCircle2 className="h-6 w-6" /> },
-  { name: 'Skills', href: '#skills', icon: <Code className="h-6 w-6" /> },
-  { name: 'Education', href: '#education', icon: <GraduationCap className="h-6 w-6" /> },
-  { name: 'Projects', href: '#projects', icon: <Library className="h-6 w-6" /> },
-  { name: 'Achievements', href: '#achievements', icon: <Award className="h-6 w-6" /> },
-  { name: 'Experience', href: '#experience', icon: <Briefcase className="h-6 w-6" /> },
+  { name: 'Home', href: 'hero', icon: <Home className="h-6 w-6" /> },
+  { name: 'About Me', href: 'about', icon: <UserCircle2 className="h-6 w-6" /> },
+  { name: 'Skills', href: 'skills', icon: <Code className="h-6 w-6" /> },
+  { name: 'Education', href: 'education', icon: <GraduationCap className="h-6 w-6" /> },
+  { name: 'Projects', href: 'projects', icon: <Library className="h-6 w-6" /> },
+  { name: 'Achievements', href: 'achievements', icon: <Award className="h-6 w-6" /> },
+  { name: 'Experience', href: 'experience', icon: <Briefcase className="h-6 w-6" /> },
 ];
 
 const Sidebar = () => {
+  const { currentSection } = useScrollContext();
+
   return (
     <motion.div
       className="w-60 bg-black h-full fixed left-0 top-0 p-6 hidden md:block"
@@ -42,8 +44,12 @@ const Sidebar = () => {
           {navItems.map((item) => (
             <Link
               key={item.name}
-              href={item.href}
-              className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors py-2 px-3 rounded-md hover:bg-[#1A1A1A]"
+              href={`#${item.href}`}
+              className={`flex items-center gap-4 py-2 px-3 rounded-md transition-colors ${
+                currentSection === item.href
+                  ? 'text-white bg-primary/10'
+                  : 'text-gray-400 hover:text-white hover:bg-[#1A1A1A]'
+              }`}
             >
               {item.icon}
               <span className="font-medium">{item.name}</span>
