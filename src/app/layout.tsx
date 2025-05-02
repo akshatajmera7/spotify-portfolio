@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Akshat Ajmera | Spotify Resume",
   description: "Sophomore at BITS Pilani Hyderabad | Software Developer",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/image.png",
   },
 };
 
