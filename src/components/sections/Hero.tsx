@@ -22,43 +22,49 @@ const Hero = () => {
         currentSection === 'hero' ? 'bg-primary/10' : 'bg-black'
       }`}
     >
-      <div className="md:pl-0">
+      <div className="container mx-auto max-w-7xl">
         {/* Top gradient background */}
         <div className="absolute top-0 left-0 right-0 h-60 bg-gradient-to-b from-primary/30 to-transparent -z-10"></div>
 
         <motion.div
-          className="flex flex-col md:flex-row items-start gap-6 md:gap-8 mt-14 md:mt-20"
+          className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8 mt-14 md:mt-20"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           {/* Profile image */}
           <motion.div
-            className="w-48 h-48 md:w-60 md:h-60 shadow-xl shadow-black/50 flex-shrink-0"
+            className="w-32 h-32 md:w-48 md:h-48 lg:w-60 lg:h-60 shadow-xl shadow-black/50 flex-shrink-0"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="w-full h-full bg-gradient-to-br from-primary/80 to-primary/30 flex items-center justify-center">
-              <span className="text-white text-6xl font-bold">AA</span>
+            <div className="w-full h-full bg-gradient-to-br from-primary/80 to-primary/30 flex items-center justify-center rounded-full">
+              <span className="text-white text-4xl md:text-6xl font-bold">AA</span>
             </div>
           </motion.div>
 
           {/* Title and description */}
           <motion.div
-            className="flex flex-col"
+            className="flex flex-col text-center md:text-left"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <div className="mb-4">
-              <p className="text-white text-sm">Resume</p>
-              <h1 className="text-4xl md:text-7xl font-bold text-white mt-2">Akshat Ajmera</h1>
-              <p className="text-gray-300 mt-2">Sophomore at BITS Pilani Hyderabad</p>
-              <p className="text-gray-400 text-sm mt-1">Computer Science • Software Developer • Problem Solver</p>
+              <p className="text-white text-sm md:text-base">Resume</p>
+              <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white mt-2 leading-tight">
+                Akshat Ajmera
+              </h1>
+              <p className="text-gray-300 mt-2 text-sm md:text-base">
+                Sophomore at BITS Pilani Hyderabad
+              </p>
+              <p className="text-gray-400 text-xs md:text-sm mt-1">
+                Computer Science • Software Developer • Problem Solver
+              </p>
             </div>
 
-            <div className="flex items-center gap-4 mt-4">
+            <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-4">
               <Button
                 className="bg-primary hover:bg-primary/90 text-white rounded-full h-12 px-6"
                 onClick={() => setIsScrolling(true)}
@@ -76,7 +82,7 @@ const Hero = () => {
               </Button>
 
               <a
-                href="/cv.pdf"
+                href="/Resume.pdf"
                 download="Akshat_Ajmera_CV.pdf"
                 className="text-white border border-white hover:bg-white/10 rounded-full px-6 h-12 flex items-center justify-center"
               >
