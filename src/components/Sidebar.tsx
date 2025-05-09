@@ -36,7 +36,7 @@ const Sidebar = () => {
         <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
           <span className="text-white font-bold text-lg">AA</span>
         </div>
-        <span className="text-white font-bold text-xl">Resumify</span>
+        <span className="text-white font-bold text-xl">Portfolio</span>
       </div>
 
       <div className="space-y-6">

@@ -27,7 +27,7 @@ const MobileNav = () => {
           <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
             <span className="text-white font-bold text-sm">AA</span>
           </div>
-          <span className="text-white font-bold text-lg">Resumify</span>
+          <span className="text-white font-bold text-lg">Portfolio</span>
         </div>
         <button onClick={toggleMenu} className="text-white p-2">
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

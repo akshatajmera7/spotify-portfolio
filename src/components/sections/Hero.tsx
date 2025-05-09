@@ -52,7 +52,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <div className="mb-4">
-              <p className="text-white text-sm md:text-base">Resume</p>
+              <p className="text-white text-xs md:text-sm tracking-wider uppercase">Resume</p>
               <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white mt-2 leading-tight">
                 Akshat Ajmera
               </h1>
@@ -64,18 +64,22 @@ const Hero = () => {
               </p>
             </div>
 
-            <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-4">
+            <div className="flex flex-wrap justify-center md:justify-start gap-6 mt-4">
               <Button
                 className="bg-primary hover:bg-primary/90 text-white rounded-full h-12 px-6"
                 onClick={() => setIsScrolling(true)}
+                aria-label="Play Audio Resume"
+                title="Hear a 4-minute summary of my skills & achievements"
               >
                 <PlayCircle className="mr-2 h-5 w-5" />
-                Play Resume
+                Listen to Resume
               </Button>
 
               <Button
                 className="bg-red-500 hover:bg-red-600 text-white rounded-full h-12 px-6"
                 onClick={() => setIsScrolling(false)}
+                aria-label="Pause Audio Resume"
+                title="Pause the audio summary"
               >
                 <PauseCircle className="mr-2 h-5 w-5" />
                 Pause
@@ -85,6 +89,8 @@ const Hero = () => {
                 href="/Resume.pdf"
                 download="Akshat_Ajmera_CV.pdf"
                 className="text-white border border-white hover:bg-white/10 rounded-full px-6 h-12 flex items-center justify-center"
+                aria-label="Download CV"
+                title="Download my CV as a PDF"
               >
                 <Download className="mr-2 h-5 w-5" />
                 Download CV
