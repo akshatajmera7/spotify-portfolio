@@ -49,7 +49,7 @@ const Achievements = () => {
           ))}
         </div>
 
-        <motion.div
+        {/* <motion.div
           className="mt-16 text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -67,7 +67,7 @@ const Achievements = () => {
               engineering entrance exams.
             </p>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

@@ -27,7 +27,7 @@ const NowPlaying = () => {
               </div>
             </div>
             <div>
-              <h4 className="text-white text-sm font-medium truncate">Skills & Achievements</h4>
+              <h4 className="text-white text-sm font-medium truncate">Resume</h4>
               <p className="text-gray-400 text-xs truncate">Akshat Ajmera</p>
             </div>
           </div>

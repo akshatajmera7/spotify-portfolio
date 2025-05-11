@@ -54,7 +54,8 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 text-center text-gray-500 text-sm">
-          © {new Date().getFullYear()} Akshat Ajmera. Designed with ❤️
+          © {new Date().getFullYear()} Akshat Ajmera
+          {/* Designed with ❤️ */}
         </div>
       </div>
     </motion.footer>

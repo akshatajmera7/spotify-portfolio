@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import LoadingScreen from '@/components/LoadingScreen';
-import { ScrollProvider } from '@/context/ScrollContext'; // Import ScrollProvider
+import { ScrollProvider } from '@/context/ScrollContext';
 import Sidebar from '@/components/Sidebar';
 import MobileNav from '@/components/MobileNav';
 import Footer from '@/components/Footer';
@@ -18,6 +18,7 @@ import Experience from '@/components/sections/Experience';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
   useEffect(() => {
     // Simulate loading time
@@ -33,12 +34,16 @@ export default function Home() {
   }
 
   return (
-    <ScrollProvider> {/* Wrap the entire app with ScrollProvider */}
+    <ScrollProvider>
       <main className="min-h-screen bg-background">
-        <Sidebar />
+        <Sidebar onToggle={(isCollapsed) => setIsSidebarCollapsed(isCollapsed)} />
         <MobileNav />
 
-        <div className="md:pl-60 pb-24"> {/* Add padding to the bottom to account for the NowPlaying bar */}
+        <div
+          className={`transition-all duration-300 ${
+            isSidebarCollapsed ? 'md:pl-16' : 'md:pl-60'
+          } pb-24`}
+        >
           <Hero />
           <About />
           <Skills />

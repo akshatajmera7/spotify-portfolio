@@ -9,14 +9,14 @@ const projectsData = [
     id: 'canvas',
     title: 'Collaborative Canvas',
     description: 'A real-time collaborative whiteboard application where users can add notes, draw shapes, and write text. Features include multi-user support, real-time updates, and the ability to save/export boards as images or JSON files.',
-    link: 'https://github.com/akshatajmera7/Collaborative-Canvas',
+    link: 'https://github.com/akshatajmera7',
     technologies: ['React', 'WebSocket', 'Canvas API', 'Node.js'],
   },
   {
     id: 'planner',
     title: 'Floor Planner',
     description: 'Java GUI-based room planning tool with features for saving, reloading, and editing layouts. Includes drag-and-drop functionality and real-time overlap detection.',
-    link: 'https://github.com/akshat-ajmera-7/Floor_Planner',
+    link: 'https://github.com/akshatajmera7',
     technologies: ['Java', 'JavaFX', 'GUI Development'],
   },
   {
@@ -30,7 +30,7 @@ const projectsData = [
     id: 'todo',
     title: 'Todo App',
     description: 'A clean and efficient todo application built with JavaScript, featuring task management and local storage.',
-    link: 'https://github.com/akshatajmera7/ToDo-App',
+    link: 'https://github.com/akshatajmera7',
     technologies: ['JavaScript', 'Local Storage', 'UI/UX', 'Front-end'],
   },
   {

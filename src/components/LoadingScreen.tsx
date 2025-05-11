@@ -54,7 +54,7 @@ const LoadingScreen = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          Loading your musical resume...
+          Loading Akshat's musical resume...
         </motion.div>
       </motion.div>
     </div>

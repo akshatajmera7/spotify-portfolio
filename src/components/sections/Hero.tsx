@@ -15,12 +15,14 @@ const topSkills = [
 const Hero = () => {
   const { isScrolling, setIsScrolling, currentSection } = useScrollContext();
 
+  const toggleScrolling = () => {
+    setIsScrolling(!isScrolling);
+  };
+
   return (
     <section
       id="hero"
-      className={`pt-20 md:pt-8 pb-16 px-6 md:px-8 ${
-        currentSection === 'hero' ? 'bg-primary/10' : 'bg-black'
-      }`}
+      className="pt-20 md:pt-8 pb-16 px-6 md:px-8 bg-black" // Removed bg-primary/10
     >
       <div className="container mx-auto max-w-7xl">
         {/* Top gradient background */}
@@ -65,24 +67,21 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-wrap justify-center md:justify-start gap-6 mt-4">
+              {/* Single Toggle Button for Play/Pause */}
               <Button
-                className="bg-primary hover:bg-primary/90 text-white rounded-full h-12 px-6"
-                onClick={() => setIsScrolling(true)}
-                aria-label="Play Audio Resume"
-                title="Hear a 4-minute summary of my skills & achievements"
+                className={`${
+                  isScrolling ? 'bg-red-500 hover:bg-red-600' : 'bg-primary hover:bg-primary/90'
+                } text-white rounded-full h-12 px-6`}
+                onClick={toggleScrolling}
+                aria-label={isScrolling ? 'Pause Audio Resume' : 'Play Audio Resume'}
+                title={isScrolling ? 'Pause the audio summary' : 'Hear a 4-minute summary of my skills & achievements'}
               >
-                <PlayCircle className="mr-2 h-5 w-5" />
-                Listen to Resume
-              </Button>
-
-              <Button
-                className="bg-red-500 hover:bg-red-600 text-white rounded-full h-12 px-6"
-                onClick={() => setIsScrolling(false)}
-                aria-label="Pause Audio Resume"
-                title="Pause the audio summary"
-              >
-                <PauseCircle className="mr-2 h-5 w-5" />
-                Pause
+                {isScrolling ? (
+                  <PauseCircle className="mr-2 h-5 w-5" />
+                ) : (
+                  <PlayCircle className="mr-2 h-5 w-5" />
+                )}
+                {isScrolling ? 'Pause' : 'Play'}
               </Button>
 
               <a
