@@ -47,13 +47,14 @@ const About = () => {
             <Card className="bg-[#121212] border-none h-full overflow-hidden">
               <CardContent className="p-6">
                 <p className="text-gray-300 mb-4 leading-relaxed">
-                  Hi, I'm Akshat Ajmera, an aspiring software engineer with a strong foundation in computer science fundamentals. My passion lies in exploring cutting-edge technologies, solving complex problems, and building impactful solutions. I thrive in collaborative environments and enjoy working with talented individuals to drive innovation.
-                </p>
+                  Hi, I’m Akshat Ajmera — an aspiring software engineer with a strong foundation in computer science and a passion for building impactful solutions.                </p>
                 <p className="text-gray-300 mb-4 leading-relaxed">
-                  With experience in data structures, algorithms, and multimodal data analysis, I am eager to learn from experienced professionals and take on challenging projects that push my boundaries. Whether it's contributing to meaningful initiatives or creating efficient, user-friendly applications, I am committed to delivering exceptional results.
+                  I’m driven by curiosity and a deep interest in exploring cutting-edge technologies, solving complex problems, and contributing to meaningful, user-focused innovations.                </p>
+                <p className="text-gray-300 leading-relaxed">
+                  With hands-on experience in data structures, algorithms, and multimodal data analysis, I enjoy collaborating with diverse teams to bring ideas to life. I thrive in environments that encourage creativity, continuous learning, and technical excellence.
                 </p>
                 <p className="text-gray-300 leading-relaxed">
-                  Let's connect and create something extraordinary together!
+                  I’m eager to take on challenging projects, learn from industry leaders, and grow as a developer. Let’s connect and build something extraordinary together!
                 </p>
               </CardContent>
             </Card>
