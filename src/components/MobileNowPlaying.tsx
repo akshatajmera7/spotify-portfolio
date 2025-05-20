@@ -8,7 +8,7 @@ const MobileNowPlaying = () => {
 
   return (
     <motion.div
-      className="fixed bottom-0 left-0 right-0 bg-[#181818] py-2 px-4 z-30 md:hidden"
+      className="fixed bottom-0 left-0 right-0 bg-[#181818] py-2 px-4 z-30 block"
       initial={{ y: 100 }}
       animate={{ y: 0 }}
       transition={{ delay: 2.5, type: 'spring', stiffness: 100, damping: 20 }}

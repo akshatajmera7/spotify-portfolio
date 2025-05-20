@@ -12,7 +12,7 @@ const NowPlaying = () => {
 
   return (
     <motion.div
-      className="fixed bottom-0 left-0 right-0 bg-[#181818] border-t border-[#282828] py-4 px-4 z-30 hidden md:block"
+      className="fixed bottom-0 left-0 right-0 bg-[#181818] border-t border-[#282828] py-4 px-4 z-30 block"
       initial={{ y: 100 }}
       animate={{ y: 0 }}
       transition={{ delay: 2.5, type: 'spring', stiffness: 100, damping: 20 }}
@@ -44,6 +44,8 @@ const NowPlaying = () => {
               <button
                 className="text-white bg-white rounded-full w-12 h-12 flex items-center justify-center hover:scale-105 transition-transform"
                 onClick={toggleScrolling}
+                aria-label={isScrolling ? 'Pause Audio Resume' : 'Play Audio Resume'}
+                title={isScrolling ? 'Pause the audio summary' : 'Hear a 4-minute summary of my skills & achievements'}
               >
                 {isScrolling ? (
                   <PauseCircle className="h-10 w-10 fill-black text-black" />

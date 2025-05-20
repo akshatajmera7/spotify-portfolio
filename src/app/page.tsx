@@ -6,7 +6,7 @@ import { ScrollProvider } from '@/context/ScrollContext';
 import Sidebar from '@/components/Sidebar';
 import MobileNav from '@/components/MobileNav';
 import Footer from '@/components/Footer';
-import NowPlaying from '@/components/NowPlaying';
+// import NowPlaying from '@/components/NowPlaying'; // Removed
 import MobileNowPlaying from '@/components/MobileNowPlaying';
 import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
@@ -54,7 +54,7 @@ export default function Home() {
           <Footer />
         </div>
 
-        <NowPlaying />
+        {/* <NowPlaying /> */}
         <MobileNowPlaying />
       </main>
     </ScrollProvider>
