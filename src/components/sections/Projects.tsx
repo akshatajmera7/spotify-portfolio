@@ -8,7 +8,7 @@ const projectsData = [
   {
     id: 'canvas',
     title: 'Collaborative Canvas',
-    description: 'A real-time collaborative whiteboard application where users can add notes, draw shapes, and write text. Features include multi-user support, real-time updates, and the ability to save/export boards as images or JSON files.',
+    description: 'A real-time collaborative whiteboard application where users can add notes, draw shapes, and write text. Features include real-time updates, and the ability to save/export boards as images or JSON files.',
     link: 'https://github.com/akshatajmera7',
     technologies: ['React', 'WebSocket', 'Canvas API', 'Node.js'],
   },
