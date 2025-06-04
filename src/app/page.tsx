@@ -57,6 +57,7 @@ export default function Home() {
 
         {/* <NowPlaying /> */}
         <MobileNowPlaying />
+        <Analytics />
       </main>
     </ScrollProvider>
   );
