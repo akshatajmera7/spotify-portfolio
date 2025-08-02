@@ -4,20 +4,84 @@ import { Library, ExternalLink, Github } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
+// Floating bubbles for Projects section
+const ProjectsBubbles = () => {
+  const bubbles = Array.from({ length: 7 }, (_, i) => ({
+    id: i,
+    size: Math.random() * 45 + 25,
+    left: Math.random() * 100,
+    delay: Math.random() * 5,
+    duration: Math.random() * 14 + 12,
+  }));
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {bubbles.map((bubble) => (
+        <motion.div
+          key={bubble.id}
+          className="absolute rounded-full bg-gradient-to-br from-orange-400/6 to-purple-400/6 backdrop-blur-sm border border-orange-400/12"
+          style={{
+            width: bubble.size,
+            height: bubble.size,
+            left: `${bubble.left}%`,
+            top: '100%',
+          }}
+          animate={{
+            y: [-60, -800],
+            x: [0, Math.sin(bubble.id * 0.5) * 80],
+            opacity: [0, 0.8, 0],
+          }}
+          transition={{
+            duration: bubble.duration,
+            delay: bubble.delay,
+            repeat: Infinity,
+            ease: 'linear',
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
 const projectsData = [
+  {
+    id: 'seeds',
+    title: 'SEEDS Over MS Teams',
+    description: 'Accessibility-focused educational technology - Developing a Microsoft Teams application to replace the legacy Android interface for SEEDS, enhancing accessibility and lesson management for 500+ visually impaired students through a unified, scalable platform. Integrated Azure services, Vonage API, and RESTful backend for real-time audio conferencing and seamless session tracking.',
+    link: 'https://github.com/akshatajmera7',
+    technologies: ['Microsoft Teams', 'Azure', 'Vonage API', 'RESTful APIs', 'Educational Technology'],
+    period: 'Jan 2025 - Present',
+    borderColor: 'border-blue-500',
+    accentColor: 'text-blue-400'
+  },
+  {
+    id: 'ai-tutor',
+    title: 'AI Tutor - Full-Stack Development',
+    description: 'Built AI Tutor, a full-stack AI-powered web app that generated 100+ personalized study plans using Gemini and Perplexity APIs, curated 500+ learning resources, and adapted to 3 learning styles for enhanced personalization. Designed responsive React + Tailwind interface with 90%+ Lighthouse performance, integrating Google Calendar API and AI chat tutoring with daily quizzes and gamified dashboard.',
+    link: 'https://github.com/akshatajmera7',
+    technologies: ['React', 'Tailwind', 'Gemini API', 'Perplexity API', 'Google Calendar API', 'AI/ML'],
+    period: 'May 2025 - Jul 2025',
+    borderColor: 'border-purple-500',
+    accentColor: 'text-purple-400'
+  },
+  {
+    id: 'floor-planner',
+    title: 'Floor Planner - Java Swing GUI',
+    description: 'Developed an interactive room planning tool in Java Swing, allowing users to create, save, reload, and edit layouts efficiently through custom serialization and file I/O. Integrated over 15+ configurable elements like doors, windows, and furniture, with rotation support and built-in placement constraints to ensure layout validity and architectural accuracy.',
+    link: 'https://github.com/akshatajmera7',
+    technologies: ['Java Swing', 'GUI Development', 'File I/O', 'Custom Serialization'],
+    period: 'Oct 2024 - Dec 2024',
+    borderColor: 'border-orange-500',
+    accentColor: 'text-orange-400'
+  },
   {
     id: 'canvas',
     title: 'Collaborative Canvas',
-    description: 'A real-time collaborative whiteboard application where users can add notes, draw shapes, and write text. Features include multi-user support, real-time updates, and the ability to save/export boards as images or JSON files.',
+    description: 'A real-time collaborative whiteboard application where users can add notes, draw shapes, and write text. Features include real-time updates, and the ability to save/export boards as images or JSON files.',
     link: 'https://github.com/akshatajmera7',
     technologies: ['React', 'WebSocket', 'Canvas API', 'Node.js'],
-  },
-  {
-    id: 'planner',
-    title: 'Floor Planner',
-    description: 'Java GUI-based room planning tool with features for saving, reloading, and editing layouts. Includes drag-and-drop functionality and real-time overlap detection.',
-    link: 'https://github.com/akshatajmera7',
-    technologies: ['Java', 'JavaFX', 'GUI Development'],
+    borderColor: 'border-green-500',
+    accentColor: 'text-green-400'
   },
   {
     id: 'slot',
@@ -25,6 +89,8 @@ const projectsData = [
     description: 'A JavaScript-based slot machine game with interactive features and animations.',
     link: 'https://github.com/akshatajmera7',
     technologies: ['JavaScript', 'HTML5', 'CSS3', 'Web Animation'],
+    borderColor: 'border-yellow-500',
+    accentColor: 'text-yellow-400'
   },
   {
     id: 'todo',
@@ -32,27 +98,18 @@ const projectsData = [
     description: 'A clean and efficient todo application built with JavaScript, featuring task management and local storage.',
     link: 'https://github.com/akshatajmera7',
     technologies: ['JavaScript', 'Local Storage', 'UI/UX', 'Front-end'],
-  },
-  {
-    id: 'pythongames',
-    title: 'Python Games Collection',
-    description: 'A collection of interactive games built using Python, demonstrating various programming concepts.',
-    link: 'https://github.com/akshatajmera7',
-    technologies: ['Python', 'Game Development', 'OOP'],
-  },
-  {
-    id: 'agewell',
-    title: 'AgeWell',
-    description: 'AI-driven elderly care solution, finalist in SEEP 2.0. Provides accessible support for independent living.',
-    link: 'https://github.com/akshatajmera7',
-    technologies: ['AI/ML', 'Healthcare', 'Python'],
+    borderColor: 'border-red-500',
+    accentColor: 'text-red-400'
   },
 ];
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 px-6 bg-black">
-      <div className="container mx-auto max-w-6xl">
+    <section id="projects" className="py-20 px-6 bg-black relative overflow-hidden">
+      {/* Floating Bubbles */}
+      <ProjectsBubbles />
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
           className="flex items-center gap-2 mb-10"
           initial={{ opacity: 0, y: 20 }}
@@ -74,18 +131,25 @@ const Projects = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="bg-[#121212] border-none h-full flex flex-col">
+              <Card className={`bg-[#121212] border-none h-full flex flex-col border-l-4 ${project.borderColor} hover:bg-[#1A1A1A] transition-colors`}>
                 <CardHeader className="pb-2">
                   <CardTitle className="text-white flex justify-between items-start">
-                    <span>{project.title}</span>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:text-primary/80 transition-colors"
-                    >
-                      <Github className="h-5 w-5" />
-                    </a>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <span>{project.title}</span>
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:text-primary/80 transition-colors"
+                        >
+                          <Github className="h-5 w-5" />
+                        </a>
+                      </div>
+                      {project.period && (
+                        <p className={`text-sm font-normal mt-1 ${project.accentColor}`}>{project.period}</p>
+                      )}
+                    </div>
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="py-4 flex-grow">

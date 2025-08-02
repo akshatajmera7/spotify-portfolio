@@ -16,12 +16,11 @@ import { useScrollContext } from '@/context/ScrollContext';
 
 const navItems = [
   { name: 'Home', href: 'hero', icon: <Home className="h-6 w-6" /> },
-  { name: 'About Me', href: 'about', icon: <UserCircle2 className="h-6 w-6" /> },
   { name: 'Skills', href: 'skills', icon: <Code className="h-6 w-6" /> },
-  { name: 'Education', href: 'education', icon: <GraduationCap className="h-6 w-6" /> },
-  { name: 'Projects', href: 'projects', icon: <Library className="h-6 w-6" /> },
-  { name: 'Achievements', href: 'achievements', icon: <Award className="h-6 w-6" /> },
   { name: 'Experience', href: 'experience', icon: <Briefcase className="h-6 w-6" /> },
+  { name: 'Projects', href: 'projects', icon: <Library className="h-6 w-6" /> },
+  { name: 'Education', href: 'education', icon: <GraduationCap className="h-6 w-6" /> },
+  { name: 'Achievements', href: 'achievements', icon: <Award className="h-6 w-6" /> },
 ];
 
 const Sidebar = ({ onToggle }: { onToggle: (isCollapsed: boolean) => void }) => {

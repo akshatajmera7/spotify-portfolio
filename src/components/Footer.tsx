@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram, FaFacebook, FaTwitter } 
 const socialLinks = [
   { name: 'LinkedIn', icon: <FaLinkedin className="text-xl" />, href: 'https://www.linkedin.com/in/akshatajmera07' },
   { name: 'GitHub', icon: <FaGithub className="text-xl" />, href: 'https://github.com/akshatajmera7' },
-  { name: 'Email', icon: <FaEnvelope className="text-xl" />, href: 'mailto:akshatajmera777@gmail.com' },
+  { name: 'Email', icon: <FaEnvelope className="text-xl" />, href: 'mailto:f20230141@hyderabad.bits-pilani.ac.in' },
   { name: 'Instagram', icon: <FaInstagram className="text-xl" />, href: 'https://www.instagram.com/akshatajmera07/' },
   { name: 'Facebook', icon: <FaFacebook className="text-xl" />, href: 'https://www.facebook.com/people/Akshat-Ajmera/pfbid02B62nqCRhEGGmPaUT5n2sv6UvVezwEBY848gzaAZ9urWyLLZ9FEyPbUWsFw48ozhBl/' },
   { name: 'Twitter', icon: <FaTwitter className="text-xl" />, href: 'https://x.com/AkshatAjme47165' },
@@ -30,7 +30,10 @@ const Footer = () => {
               <span className="text-white font-bold text-xl">Akshat Ajmera</span>
             </div>
             <p className="text-gray-400 mt-2 max-w-md text-sm">
-              Sophomore at BITS Pilani Hyderabad | Software Developer
+              Computer Science Engineering Student | Full-Stack Developer | CGPA: 8.44
+            </p>
+            <p className="text-gray-500 text-xs mt-1">
+              Mobile: 9636211800 | Email: f20230141@hyderabad.bits-pilani.ac.in
             </p>
           </div>
 

@@ -5,12 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const navItems = [
   { name: 'Home', href: '/', icon: <Home className="h-5 w-5" /> },
-  { name: 'About Me', href: '#about', icon: <UserCircle2 className="h-5 w-5" /> },
   { name: 'Skills', href: '#skills', icon: <Code className="h-5 w-5" /> },
-  { name: 'Education', href: '#education', icon: <GraduationCap className="h-5 w-5" /> },
-  { name: 'Projects', href: '#projects', icon: <Library className="h-5 w-5" /> },
-  { name: 'Achievements', href: '#achievements', icon: <Award className="h-5 w-5" /> },
   { name: 'Experience', href: '#experience', icon: <Briefcase className="h-5 w-5" /> },
+  { name: 'Projects', href: '#projects', icon: <Library className="h-5 w-5" /> },
+  { name: 'Education', href: '#education', icon: <GraduationCap className="h-5 w-5" /> },
+  { name: 'Achievements', href: '#achievements', icon: <Award className="h-5 w-5" /> },
 ];
 
 const MobileNav = () => {

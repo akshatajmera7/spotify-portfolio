@@ -9,7 +9,6 @@ import Footer from '@/components/Footer';
 // import NowPlaying from '@/components/NowPlaying'; // Removed
 import MobileNowPlaying from '@/components/MobileNowPlaying';
 import Hero from '@/components/sections/Hero';
-import About from '@/components/sections/About';
 import Skills from '@/components/sections/Skills';
 import Education from '@/components/sections/Education';
 import Projects from '@/components/sections/Projects';
@@ -42,20 +41,19 @@ export default function Home() {
         <div
           className={`transition-all duration-300 ${
             isSidebarCollapsed ? 'md:pl-16' : 'md:pl-60'
-          } pb-24`}
+          } pb-8`}
         >
           <Hero />
-          <About />
           <Skills />
-          <Education />
-          <Projects />
-          <Achievements />
           <Experience />
+          <Projects />
+          <Education />
+          <Achievements />
           <Footer />
         </div>
 
         {/* <NowPlaying /> */}
-        <MobileNowPlaying />
+        {/* <MobileNowPlaying /> */}
       </main>
     </ScrollProvider>
   );
