@@ -14,6 +14,7 @@ import Education from '@/components/sections/Education';
 import Projects from '@/components/sections/Projects';
 import Achievements from '@/components/sections/Achievements';
 import Experience from '@/components/sections/Experience';
+import { Analytics } from "@vercel/analytics/next"
 
 export default function Home() {
   const [loading, setLoading] = useState(true);

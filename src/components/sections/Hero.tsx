@@ -27,7 +27,7 @@ const FloatingBubbles = () => {
             top: '100%',
           }}
           animate={{
-            y: [-100, -window.innerHeight - 100],
+            y: [-100, -800],
             x: [0, Math.sin(bubble.id) * 100],
             opacity: [0, 0.7, 0],
           }}
@@ -41,22 +41,6 @@ const FloatingBubbles = () => {
       ))}
     </div>
   );
-};
-
-// Example: category color mapping for skills
-const skillCategory = [
-  { id: 1, name: 'Web Development (Laravel, PHP)', duration: '4:15', category: 'web' },
-  { id: 2, name: 'Data Structures & Algorithms', duration: '4:12', category: 'dsa' },
-  { id: 3, name: 'RESTful APIs & MySQL', duration: '3:45', category: 'web' },
-  { id: 4, name: 'AI/ML Integration (Gemini, Perplexity)', duration: '3:30', category: 'ai' },
-  { id: 5, name: 'Microsoft Teams Development', duration: '4:00', category: 'enterprise' },
-];
-
-const categoryColors: Record<string, string> = {
-  web: 'hover:bg-green-900/60',
-  dsa: 'hover:bg-cyan-900/60',
-  ai: 'hover:bg-purple-900/60',
-  enterprise: 'hover:bg-blue-900/60',
 };
 
 const chips = [
@@ -80,7 +64,6 @@ const WrappedPopup = ({ onClose }: { onClose: () => void }) => (
           <span className="text-green-400 font-bold text-lg mb-2">Top Skill</span>
           <span className="text-white text-2xl font-semibold text-center">Data Structures & Algorithms</span>
           <div className="w-16 h-16 mt-4">
-            {/* Example progress ring */}
             <svg viewBox="0 0 36 36">
               <path
                 className="text-green-700"
@@ -155,7 +138,7 @@ const WrappedPopup = ({ onClose }: { onClose: () => void }) => (
 );
 
 const Hero = () => {
-  const { isScrolling, setIsScrolling, currentSection } = useScrollContext();
+  const { isScrolling, setIsScrolling } = useScrollContext();
   const [showWrapped, setShowWrapped] = useState(false);
 
   const toggleScrolling = () => {
@@ -340,61 +323,6 @@ const Hero = () => {
             </div>
           </div>
         </motion.div>
-
-        {/* Tagline marquee (optional, subtle animation) */}
-        {/* <div className="overflow-hidden mt-4">
-          <motion.div
-            className="whitespace-nowrap text-green-400 text-sm font-medium"
-            animate={{ x: ['0%', '-50%'] }}
-            transition={{ repeat: Infinity, duration: 12, ease: 'linear' }}
-          >
-            Computer Science • Software Developer • Problem Solver • Teamwork • Leadership • Critical Thinking
-          </motion.div>
-        </div> */}
-
-        {/* Commented out Top skills table - Spotify-like playlist */}
-        {/* <motion.div
-          className="mt-16 md:mt-20"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          <div className="overflow-x-auto">
-            <table className="w-full text-left">
-              <thead className="border-b border-[#282828]">
-                <tr>
-                  <th className="py-2 text-sm font-normal text-gray-400 w-12">#</th>
-                  <th className="py-2 text-sm font-normal text-gray-400">TITLE</th>
-                  <th className="py-2 text-sm font-normal text-gray-400 text-right pr-8">
-                    <Clock3 className="h-4 w-4 inline-block" />
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {skillCategory.map((skill, index) => (
-                  <motion.tr
-                    key={skill.id}
-                    className={`group border-b border-[#282828] transition-colors cursor-pointer ${
-                      categoryColors[skill.category] || ''
-                    } ${currentSection === `skill-${index}` ? 'bg-primary/20' : ''}`}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
-                  >
-                    <td className="py-3 text-gray-400 group-hover:text-white">{index + 1}</td>
-                    <td className="py-3 font-medium text-gray-200 group-hover:text-white flex items-center gap-2">
-                      {skill.name}
-                      <span className="opacity-0 group-hover:opacity-100 transition-opacity ml-2">
-                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#fff" strokeWidth="2"/><path d="M12 8v4m0 4h.01" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></svg>
-                      </span>
-                    </td>
-                    <td className="py-3 text-gray-400 text-right pr-8 group-hover:text-white">{skill.duration}</td>
-                  </motion.tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </motion.div> */}
 
         {/* Wrapped Popup */}
         {showWrapped && <WrappedPopup onClose={() => setShowWrapped(false)} />}
