@@ -21,7 +21,7 @@ const MobileNav = () => {
 
   return (
     <div className="md:hidden">
-      <div className="fixed top-0 left-0 right-0 z-40 px-4 py-3 bg-black flex justify-between items-center">
+  <div className="fixed top-0 left-0 right-0 z-40 px-4 py-3 bg-gradient-to-b from-[#10291a] via-[#0e1c13] to-[#0a0a0a] flex justify-between items-center">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
             <span className="text-white font-bold text-sm">AA</span>
@@ -36,7 +36,7 @@ const MobileNav = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 bg-black z-30 pt-16 px-4"
+            className="fixed inset-0 bg-gradient-to-b from-[#10291a] via-[#0e1c13] to-[#0a0a0a] z-30 pt-16 px-4"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}

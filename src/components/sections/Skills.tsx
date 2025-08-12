@@ -3,21 +3,8 @@ import { motion } from 'framer-motion';
 import { Code } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-// Colorful background colors for skills
-const skillColors = [
-  'bg-gradient-to-r from-red-500/20 to-red-600/20 text-red-200 border border-red-500/30',
-  'bg-gradient-to-r from-blue-500/20 to-blue-600/20 text-blue-200 border border-blue-500/30',
-  'bg-gradient-to-r from-green-500/20 to-green-600/20 text-green-200 border border-green-500/30',
-  'bg-gradient-to-r from-purple-500/20 to-purple-600/20 text-purple-200 border border-purple-500/30',
-  'bg-gradient-to-r from-yellow-500/20 to-yellow-600/20 text-yellow-200 border border-yellow-500/30',
-  'bg-gradient-to-r from-pink-500/20 to-pink-600/20 text-pink-200 border border-pink-500/30',
-  'bg-gradient-to-r from-indigo-500/20 to-indigo-600/20 text-indigo-200 border border-indigo-500/30',
-  'bg-gradient-to-r from-cyan-500/20 to-cyan-600/20 text-cyan-200 border border-cyan-500/30',
-  'bg-gradient-to-r from-emerald-500/20 to-emerald-600/20 text-emerald-200 border border-emerald-500/30',
-  'bg-gradient-to-r from-orange-500/20 to-orange-600/20 text-orange-200 border border-orange-500/30',
-  'bg-gradient-to-r from-violet-500/20 to-violet-600/20 text-violet-200 border border-violet-500/30',
-  'bg-gradient-to-r from-rose-500/20 to-rose-600/20 text-rose-200 border border-rose-500/30',
-];
+// Minimal, consistent background color for all skills
+const skillBadgeClass = 'bg-neutral-800/80 text-neutral-100 border border-neutral-700';
 
 const technicalSkills = [
   'C++', 'C Programming', 'Java', 'Python', 'JavaScript', 'React.js', 'Node.js', 'PHP', 
@@ -71,12 +58,10 @@ const SkillsBubbles = () => {
   );
 };
 
-const SkillBadge = ({ skill, index }: { skill: string; index: number }) => {
-  const colorClass = skillColors[index % skillColors.length];
-  
+const SkillBadge = ({ skill }: { skill: string }) => {
   return (
     <motion.div
-      className={`${colorClass} rounded-full px-4 py-2 text-sm font-medium shadow-lg backdrop-blur-sm`}
+      className={`${skillBadgeClass} rounded-full px-4 py-2 text-sm font-medium shadow-lg backdrop-blur-sm`}
       whileHover={{ 
         scale: 1.08, 
         boxShadow: '0 10px 25px rgba(0,0,0,0.3)',
@@ -133,7 +118,7 @@ const Skills = () => {
                       transition={{ duration: 0.3, delay: index * 0.05 }}
                       viewport={{ once: true }}
                     >
-                      <SkillBadge skill={skill} index={index} />
+                      <SkillBadge skill={skill} />
                     </motion.div>
                   ))}
                 </div>
@@ -164,7 +149,7 @@ const Skills = () => {
                       transition={{ duration: 0.3, delay: index * 0.1 }}
                       viewport={{ once: true }}
                     >
-                      <SkillBadge skill={skill} index={technicalSkills.length + index} />
+                      <SkillBadge skill={skill} />
                     </motion.div>
                   ))}
                 </div>

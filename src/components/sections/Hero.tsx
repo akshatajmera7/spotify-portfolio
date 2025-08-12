@@ -10,8 +10,8 @@ const FloatingBubbles = () => {
     id: i,
     size: Math.random() * 60 + 20,
     left: Math.random() * 100,
-    delay: Math.random() * 4,
-    duration: Math.random() * 10 + 15,
+    delay: Math.random() * 2, // less delay for more activity
+    duration: Math.random() * 5 + 6, // much faster bubbles
   }));
 
   return (
@@ -148,7 +148,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="pt-20 md:pt-8 pb-16 px-6 md:px-8 bg-black relative overflow-hidden"
+      className="pt-20 md:pt-8 pb-16 px-6 md:px-8 bg-gradient-to-b from-[#10291a] via-[#0e1c13] to-[#0a0a0a] relative overflow-hidden"
     >
       {/* Floating Bubbles */}
       <FloatingBubbles />
@@ -163,16 +163,16 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {/* Profile image */}
+          {/* Profile image - remove any parent background/gradient, only the circle has gradient */}
           <motion.div
-            className="w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 shadow-2xl shadow-green-500/20 flex-shrink-0 relative"
+            className="w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 flex-shrink-0 relative bg-transparent"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="w-full h-full bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center rounded-full relative overflow-hidden">
+            <div className="w-full h-full rounded-full flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-green-500 to-green-600">
               <span className="text-white text-5xl md:text-6xl lg:text-7xl font-bold">AA</span>
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-black/20 rounded-full"></div>
+              <div className="absolute inset-0 rounded-full pointer-events-none" style={{background: 'radial-gradient(ellipse at 60% 30%, rgba(255,255,255,0.10) 0%, transparent 70%)'}} />
             </div>
             {/* Floating indicators */}
             <motion.div 

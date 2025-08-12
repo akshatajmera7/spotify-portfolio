@@ -37,7 +37,7 @@ const Sidebar = ({ onToggle }: { onToggle: (isCollapsed: boolean) => void }) => 
     <motion.div
       className={`${
         isCollapsed ? 'w-16' : 'w-60'
-      } bg-black h-full fixed left-0 top-0 p-6 hidden md:block transition-all duration-300`}
+  } bg-gradient-to-b from-[#10291a] via-[#0e1c13] to-[#0a0a0a] h-full fixed left-0 top-0 p-6 hidden md:block transition-all duration-300`}
       initial={{ x: -250 }}
       animate={{ x: 0 }}
       transition={{ type: 'spring', stiffness: 100, damping: 20 }}
@@ -46,7 +46,7 @@ const Sidebar = ({ onToggle }: { onToggle: (isCollapsed: boolean) => void }) => 
       <div
         className={`flex items-center gap-2 mb-8 ${
           isCollapsed ? 'justify-center cursor-pointer' : ''
-        }`}
+        } bg-gradient-to-b from-[#10291a] via-[#0e1c13] to-[#0a0a0a]`}
         onClick={toggleSidebar} // Toggle sidebar on click
       >
         {isCollapsed ? (

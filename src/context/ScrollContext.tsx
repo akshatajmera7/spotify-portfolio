@@ -15,15 +15,23 @@ export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   useEffect(() => {
     let scrollInterval: NodeJS.Timeout | null = null;
-
+    // Only auto-scroll if isScrolling, but do NOT block user scroll (let user override at any time)
     if (isScrolling) {
       scrollInterval = setInterval(() => {
         window.scrollBy({ top: 1, behavior: 'smooth' });
       }, 20);
-    } else if (scrollInterval) {
-      clearInterval(scrollInterval);
+      // Allow user to stop auto-scroll by manual scroll/touch
+      const stopOnUserScroll = () => setIsScrolling(false);
+      window.addEventListener('wheel', stopOnUserScroll, { passive: true });
+      window.addEventListener('touchstart', stopOnUserScroll, { passive: true });
+      return () => {
+        if (scrollInterval) clearInterval(scrollInterval);
+        window.removeEventListener('wheel', stopOnUserScroll);
+        window.removeEventListener('touchstart', stopOnUserScroll);
+      };
+    } else {
+      if (scrollInterval) clearInterval(scrollInterval);
     }
-
     return () => {
       if (scrollInterval) clearInterval(scrollInterval);
     };

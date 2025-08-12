@@ -54,7 +54,7 @@ export default function Home() {
         </div>
 
         {/* <NowPlaying /> */}
-        {/* <MobileNowPlaying /> */}
+  <MobileNowPlaying />
       </main>
     </ScrollProvider>
   );
