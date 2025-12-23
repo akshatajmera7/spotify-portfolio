@@ -24,7 +24,7 @@ const Hero = () => {
             />
           </div>
         </motion.div>
-
+{/* yo */}
         <div className="flex flex-col gap-2 mb-2 w-full">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
