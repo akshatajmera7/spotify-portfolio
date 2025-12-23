@@ -43,8 +43,9 @@
   * {
     @apply border-border;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-black text-foreground;
     font-family: 'Montserrat', sans-serif;
   }
 }
@@ -99,13 +100,30 @@
       opacity: 0.6;
       transform: scale(0.9);
     }
+
     50% {
       opacity: 1;
       transform: scale(1);
     }
+
     100% {
       opacity: 0.6;
       transform: scale(0.9);
     }
+  }
+
+  /* Marquee Animation */
+  .animate-marquee {
+    animation: marquee 15s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
   }
 }

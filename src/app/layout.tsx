@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-  <body className="antialiased bg-gradient-to-b from-[#10291a] via-[#0e1c13] to-[#0a0a0a] min-h-screen">
+      <body className="antialiased bg-black min-h-screen">
         <Toaster position="top-center" />
         {children}
       </body>

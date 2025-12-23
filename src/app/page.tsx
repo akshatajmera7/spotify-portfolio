@@ -14,6 +14,7 @@ import Education from '@/components/sections/Education';
 import Projects from '@/components/sections/Projects';
 import Achievements from '@/components/sections/Achievements';
 import Experience from '@/components/sections/Experience';
+import SpotifyLayout from '@/components/SpotifyLayout';
 import { Analytics } from "@vercel/analytics/next"
 
 export default function Home() {
@@ -35,27 +36,15 @@ export default function Home() {
 
   return (
     <ScrollProvider>
-      <main className="min-h-screen bg-background">
-        <Sidebar onToggle={(isCollapsed) => setIsSidebarCollapsed(isCollapsed)} />
-        <MobileNav />
-
-        <div
-          className={`transition-all duration-300 ${
-            isSidebarCollapsed ? 'md:pl-16' : 'md:pl-60'
-          } pb-8`}
-        >
-          <Hero />
-          <Skills />
-          <Experience />
-          <Projects />
-          <Education />
-          <Achievements />
-          <Footer />
-        </div>
-
-        {/* <NowPlaying /> */}
-  <MobileNowPlaying />
-      </main>
+      <SpotifyLayout>
+        <Hero />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Education />
+        <Achievements />
+        <Footer />
+      </SpotifyLayout>
     </ScrollProvider>
   );
 }
